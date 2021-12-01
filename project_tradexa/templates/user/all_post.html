@@ -1,0 +1,23 @@
+{% extends 'user/base.html' %}
+{% block title %}
+<title>All POST</title>
+{% endblock %}
+
+{% block content %}
+<h1>Add New POST</h1>
+<table>
+    <tr>
+        <th>User Id</th>
+        <th>Text</th>
+        <th>Update</th>
+        {% for data in posts %}
+        <tr>
+            <td>{{data.user.id}}</td>
+            <td>{{data.text}}</td>
+            <td><a href="{% url 'post_update' data.id %}">Update</a></td>
+            </tr>
+        {% endfor %}
+
+    </tr>
+    </table>
+{% endblock %}
